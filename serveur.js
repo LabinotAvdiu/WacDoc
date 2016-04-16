@@ -1,54 +1,47 @@
-var http = require('http');
+var socket = require('socket.io');
+var mysql = require('mysql');
+var fs = require('fs');
 
-var url = require('url');
-
-
-var server = http.createServer(function(req, res) {
-
-    var page = url.parse(req.url).pathname;
-
-    console.log(page);
-
-    res.writeHead(200, {"Content-Type": "text/plain"});
-
-    if (page == '/') {
-
-        res.write('Vous êtes à l\'accueil, que puis-je pour vous ?');
-
-    }
-
-    else if (page == '/sous-sol') {
-
-        res.write('Vous êtes dans la cave à vins, ces bouteilles sont à moi !');
-
-    }
-
-    else if (page == '/etage/1/chambre') {
-
-        res.write('Hé ho, c\'est privé ici !');
-
-    } else {
-    	res.writeHead(404, {"Content-Type": "text/plain"});
-    	res.write('La page demandé n\'existe pas');
-    }
-
-    res.end();
-
+var con = mysql.createConnection({
+	host     : "localhost",
+	user     : "root",
+	password : "wac",
+	database : "wacdoc"
 });
 
-server.listen(8080);
-
-// var http = require('http'),
-//     fs = require('fs');
+// var toto = socket.on(pseudo, email, pass);
+// console.log(toto);
 
 
-// fs.readFile('/index.html', function (err, html) {
-//     // if (err) {
-//     //     throw err; 
-//     // }       
-//     http.createServer(function(request, response) {  
-//         response.writeHeader(200, {"Content-Type": "text/html"});  
-//         response.write(html);  
-//         response.end();  
-//     }).listen(8080);
-// });
+
+var express = require('express');
+var app = express();
+
+// dans le dossier public a la racine
+app.use(express.static(__dirname + '/public'));
+
+
+var server = app.listen(3333, function ()
+{
+	var host = server.address().address
+	var port = server.address().port
+	console.log("Example app listening at http://%s:%s", host, port)
+})
+
+var io = require('socket.io').listen(server);
+
+io.sockets.on('connection', function (socket)
+{
+	socket.on('login', function (pseudo, email, pass) {
+		console.log(pseudo, email, pass);
+	});
+
+	con.query("SELECT * FROM users WHERE username = 'Skizz' ", function(err, rows) {
+		// console.log(rows);
+	});
+
+	// console.log('Un client est connecté !');
+});
+
+
+server.listen(3333);
