@@ -1,2 +1,2 @@
 # WacDoc
-school project like Google Doc
+scool project like Google Doc
