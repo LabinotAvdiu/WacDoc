@@ -2,6 +2,56 @@ body {
 	margin: 0;
 	padding: 0;
 }
-nav {
+a {
+	padding: 0;
+	margin: 0;
+}
+#nav {
 	height: 100px;
 }
+#card {
+	width: 188px;
+	margin-right: 2%;
+	float: left;
+}
+#card-height img {
+	min-height: 249px;
+}
+#nav-mobile {
+	margin-right: 100px; 
+}
+.ecart {
+	margin-left: 15px;
+}
+#wac {
+	margin-left: 10%;
+}
+#upload {
+	border: 2px #4285F4 dashed;
+	margin-top: 150px;
+	height: 400px;
+}
+#upload:hover {
+	border: 2px #DB4437 dashed;
+}
+.upload-file {
+	opacity: 0;
+	position: relative;
+	bottom: 30px;
+	width: 100%;
+	height: 400px;
+}
+#read {
+	position: relative;
+	top: 180px;
+	left: 270px;
+	font-size: 20px;
+	color: #4285F4;
+}
+#file {
+	float: right;
+	margin-right: 25%;
+}
+/*.title {
+	padding: 0px;
+}*/
