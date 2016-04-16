@@ -25,34 +25,57 @@
         });
 
         // Toolbar generation
-        this.before('<nav>' +
-            '<div class="nav-wrapper">' +
-            '<ul id="wysiwyg-nav">' +
-            '<li><a href="sass.html">Sass</a></li>' +
-            '</ul>' +
-            '</div>' +
-            '</nav>');
+        var tools = {
+            title: {icon: 'title', function: titleReplace},
+            underline: {icon: 'format_underlined', function: underlineReplace}
+        };
+
+        function GenerateToolbar() {
+            this.create = function () {
+                self.before('<nav>' +
+                    '<div class="nav-wrapper">' +
+                    '<ul id="wysiwyg-nav">' +
+                    '</ul>' +
+                    '</div>' +
+                    '</nav>');
+
+                $.each(tools, function (key, val) {
+                    $('#wysiwyg-nav').append('<a id="' + key + '"><i class="material-icons">' + val.icon + '</i></a>');
+                    $('#' + key).on('click', val.function);
+                });
+            };
+            this.create();
+        }
+        new GenerateToolbar();
+
+        var text = this.text(),
+            selectedText = '';
+
+        // Get selected text
+        this.on('mouseup', function () {
+            selectedText = window.getSelection().toString();
+        });
 
         // Title function
         function titleReplace() {
-            self.on('mouseup', function () {
-                var selectedText = window.getSelection().toString();
+            if (selectedText !== '') {
                 var replace = '<h1>' + selectedText + '</h1>';
-                var text = self.text();
-                self.html(text.replace(selectedText, replace));
-            });
+                text = text.replace(selectedText, replace);
+                self.html(text);
+                selectedText = '';
+            }
         }
 
         // Underline function
         function underlineReplace() {
-            self.on('mouseup', function () {
-                var selectedText = window.getSelection().toString();
+            if (selectedText !== '') {
                 var replace = '<span class="underline">' + selectedText + '</span>';
-                var text = self.text();
-                self.html(text.replace(selectedText, replace));
+                text = text.replace(selectedText, replace);
+                self.html(text);
+                selectedText = '';
 
-                $('.underline').css({'text-decoration': 'underline'})
-            });
+                $('.underline').css({'text-decoration': 'underline'});
+            }
         }
 
         // Test
