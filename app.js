@@ -42,7 +42,8 @@ var storage = multer.diskStorage({
         callback(null, './public/userfiles');
     },
     filename: function (req, file, callback) {
-        callback(null, file.fieldname);
+        var res = file.mimetype.split('/');
+        callback(null, Date.now() + '.' + res[1]);
     }
 });
 var upload = multer({storage: storage}).single('userPhoto');
@@ -54,7 +55,6 @@ app.post('/api/photo', function (req, res) {
         res.end("File is uploaded");
     });
 });
-
 
 passport.serializeUser(function (user, done) {
     done(null, user.username);
