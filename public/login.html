@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>WacDoc</title>
+<link rel="stylesheet" href="materialize/css/materialize.min.css">
+<!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
+<script src="licence.js" type="text/javascript"></script>	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="jquery.js" type="text/javascript"></script>
+<body>
+
+	<nav>
+		<div class="nav-wrapper teal darken-1">
+			<a href="#" class="brand-logo">Logo</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="/register">Inscription</a></li>
+				<li><a href="/login">Connexion</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="row">
+		<form class="col s12">
+			<div class="row">
+				<div class="input-field col s6 push-s3">
+					<input id="pseudo" type="text" placeholder="Pseudonyme" class="validate" name="username">
+					<label for="email">Email</label>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6 push-s3">
+					<input id="password" type="password" placeholder="Mot de passe" class="validate" name="password">
+
+					<label for="password">Password</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s1 push-s8">
+					<button id="connexion" class="waves-effect waves-light btn">Valider</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
