@@ -15,15 +15,16 @@
         this.css({
             padding: '10px'
         });
+        this.addClass('z-depth-2');
 
         this.mousemove(function (event) {
             var target = $(event.target);
             if (target.is("a")) {
                 target[0].contentEditable = false;
                 target.hover(
-                    function() {
+                    function () {
                         target.css({'text-decoration': 'underline'});
-                    }, function() {
+                    }, function () {
                         target.css({'text-decoration': 'none'});
                     }
                 );
@@ -33,12 +34,12 @@
         // Adds colorpicker and file input
         this.after('<input type="color" value="#000000" id="wysiwyg-colorPicker">');
         var $colorPicker = $('#wysiwyg-colorPicker');
-        $colorPicker.css({position: 'absolute', left: '1000%'});
+        $colorPicker.css({position: 'absolute', left: '-1000%'});
         this.after('<input type="file" id="wysiwyg-fileInput">');
         var $fileInput = $('#wysiwyg-fileInput');
         $fileInput.hide();
 
-        // Toolbar generation
+        // Tools
         var tools = {
             title: {icon: 'title', function: title},
             underline: {
@@ -66,11 +67,12 @@
                     document.execCommand('insertUnorderedList');
                     self.css({'list-style-type': 'square'});
                 }
-            }, photo: {
-                icon: 'insert_photo', function: getImage
+            },
+            photo: {
+                icon: 'insert_photo', function: image
             },
             link: {
-                icon: 'insert_link', function: getLink
+                icon: 'insert_link', function: link
             },
             fontColor: {
                 icon: 'format_color_text', function: function () {
@@ -88,9 +90,18 @@
                 icon: 'redo', function: function () {
                     document.execCommand('redo');
                 }
+            },
+            htmlSave: {
+                icon: 'code', function: function () {
+                    downloadInnerHtml('text.html', self, 'text/html');
+                }
+            },
+            pdfSave: {
+                icon: 'description', function: pdf
             }
         };
 
+        // Toolbar generation
         function GenerateToolbar() {
             this.create = function () {
                 self.before('<nav>' +
@@ -107,14 +118,19 @@
             };
             this.create();
         }
+
         new GenerateToolbar();
 
         $('#wysiwyg-nav').on('mousedown', function (event) {
             event.preventDefault();
         });
 
-        var text = this.text(),
+        var text = getText(),
             selectedText = '';
+
+        function getText(){
+            return self.html();
+        }
 
         // Get selected text
         this.on('mouseup', function () {
@@ -131,7 +147,7 @@
             }
         }
 
-        function getLink() {
+        function link() {
             var tmpSelectedText = selectedText;
             self.after('<div id="link-background"><input id="wysiwyg-link" type="text" value="http://"></div>');
             $('#link-background').css({
@@ -160,7 +176,8 @@
                         $(this).remove();
                         if (tmpSelectedText !== '') {
                             var replace = '<a href="' + link + '">' + tmpSelectedText + '</a>';
-                            text = text.replace(tmpSelectedText, replace);
+                            text = getText().replace(tmpSelectedText, replace);
+                            console.log(text);
                             self.html(text);
                             selectedText = '';
                         }
@@ -169,7 +186,7 @@
             });
         }
 
-        function getImage() {
+        function image() {
             $fileInput[0].click();
             $fileInput.on('change', function (e) {
                 if ((/\.(png|jpeg|jpg|gif)$/i).test(e.target.files[0].name)) {
@@ -188,6 +205,30 @@
                     alert('Please upload an image file');
                 }
             });
+        }
+
+        function downloadInnerHtml(filename, elId, mimeType) {
+            var elHtml = elId.html();
+            var link = document.createElement('a');
+            mimeType = mimeType || 'text/plain';
+
+            link.setAttribute('download', filename);
+            link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+            link.click();
+        }
+
+        function pdf() {
+            var doc = new jsPDF();
+            var specialElementHandlers = {
+                '#editor': function (element, renderer) {
+                    return true;
+                }
+            };
+            doc.fromHTML(self.html(), 15, 15, {
+                'width': 170
+            });
+
+            doc.save('text.pdf');
         }
     }
 })(jQuery);
