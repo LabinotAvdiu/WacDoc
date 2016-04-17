@@ -15,15 +15,26 @@ var crypto = require('crypto');
 
 
 app.get('/login', function(req, res) {
-	res.sendFile(path.join(__dirname + '/public/login.html'));
+	res.setHeader('Content-Type', 'text/html');
+	res.sendFile(path.join(__dirname + '/public/login.php'));
 });
+// app.get('/upload', function(req, res) {
+// 	res.sendFile(path.join(__dirname + '/public/uploadfiles.php'));
+// });
 
 app.get('/register', function(req, res) {
-	res.sendFile(path.join(__dirname + '/public/register.html'));
+	res.setHeader('Content-Type', 'text/html');
+	res.sendFile(path.join(__dirname + '/public/register.php'));
 });
 
 app.get('/upload', function(req, res) {
-	res.sendFile(path.join(__dirname + '/public/upload.html'));
+	res.setHeader('Content-Type', 'text/html');
+	res.sendFile(path.join(__dirname + '/public/upload.php'));
+});
+
+app.get('/uploadfiles', function(req, res) {
+	res.setHeader('Content-Type', 'text/html');
+	res.sendFile(path.join(__dirname + '/public/uploadfiles.php'));
 });
 
 // dans le dossier public a la racine
@@ -52,13 +63,13 @@ io.sockets.on('connection', function (socket)
 {
 	socket.on("insciption",function(first_name,email,password){
 		con.query("SELECT * from users where username='"+first_name+"' OR email ='" +email+"' ",function(err,rows){
-		  console.log(rows[0].username);
-		  console.log(rows[0].email);
+			console.log(rows[0].username);
+			console.log(rows[0].email);
 
 			if(rows[0].username == first_name || rows[0].email == email)
 			{
-				   socket.emit("insciption","error");  
-				   console.log(email);
+				socket.emit("insciption","error");  
+				console.log(email);
 			}
 			else
 			{
@@ -69,7 +80,7 @@ io.sockets.on('connection', function (socket)
 				})
 			}
 		});
-				console.log('Un client est connecté !');
+		console.log('Un client est connecté !');
 	});
 })
-	server.listen(3333);
+server.listen(3333);

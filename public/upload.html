@@ -9,7 +9,7 @@
 </head>
 <body>
 	<nav id="nav">
-		<div class="nav-wrapper teal darken-1">
+		<div class="nav-wrapper red darken-3">
 			<a id="wac" href="#" class="brand-logo">WacDoc</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li class="ecart"><i class="material-icons">view_list</i></li>
@@ -18,15 +18,14 @@
 		</div>
 	</nav>
 	<div class="row">
-		<div id=upload class="col s6 push-s3">
-			<span id="read">Glisser ou cliquer pour uploader vos fichiers</span>
-			<form id="myForm" method="post" enctype="multipart/form-data">
+		<form id="myForm" action="/uploadfiles" method="post" enctype="multipart/form-data">
+			<div id=upload class="col s6 push-s3">
+				<span id="read">Glisser ou cliquer pour uploader vos fichiers</span>
 				<input class="upload-file" type="file" id="files" name="files" multiple><br/>
-			</form>
-		</div>
-		<div id="selectedFiles"></div>
+			</div>
+			<button type="submit" id="file" class="waves-effect waves-light btn">Valider</button>
+		</form>
 	</div>
-	<button type="submit" id="file" class="waves-effect waves-light btn">Valider</button>
 	<script src="jquery.js" type="text/javascript"></script>	
 	<script src="mywac.js" type="text/javascript"></script>
 	<script src="/socket.io/socket.io.js"></script>

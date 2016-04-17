@@ -49,6 +49,8 @@ a {
 	color: #4285F4;
 }
 #file {
+	position: relative;
+	top: 560px;
 	float: right;
 	margin-right: 25%;
 }
