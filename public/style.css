@@ -1,59 +1,47 @@
-body {
-	margin: 0;
-	padding: 0;
-}
-a {
-	padding: 0;
-	margin: 0;
+#background {
+	background-image: url('img/francisco.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+
 }
 #nav {
 	height: 100px;
+	line-height: 90px;
 }
-#card {
-	width: 188px;
-	margin-right: 2%;
-	float: left;
+#title {
+	width: 16%;
+	margin-left: 16%;
 }
-#card-height img {
-	min-height: 249px;
-}
-#nav-mobile {
-	margin-right: 100px; 
-}
-.ecart {
-	margin-left: 15px;
-}
-#wac {
-	margin-left: 10%;
-}
-#upload {
-	border: 2px #4285F4 dashed;
-	margin-top: 150px;
-	height: 400px;
-}
-#upload:hover {
-	border: 2px #DB4437 dashed;
-}
-.upload-file {
-	opacity: 0;
-	position: relative;
-	bottom: 30px;
+#logo {
 	width: 100%;
-	height: 400px;
 }
-#read {
+#subject {
 	position: relative;
-	top: 180px;
-	left: 270px;
-	font-size: 20px;
-	color: #4285F4;
+	left: 15%;
+	top: 15px;
+	padding: 5px;
+	background-color: #e53935;
 }
-#file {
-	position: relative;
-	top: 560px;
-	float: right;
-	margin-right: 25%;
+.menu {
+	margin-right: 16%;
 }
-/*.title {
-	padding: 0px;
-}*/
+#inscription {
+	margin: 0;
+	height: 919px;
+}
+.align {
+	color: red;
+	width: 90%;
+	text-align: center;
+}
+#signin {
+	margin-left: 37%;
+	margin-right: 37%;
+}
+#signup {
+	margin-left: 37%;
+	margin-right: 37%;
+}
+#insc {
+	margin-top: 60%;
+}
