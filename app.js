@@ -20,35 +20,35 @@ var Model = require('./model');
 
 var app = express();
 app.use(express.static(__dirname + '/public'));
-passport.use(new LocalStrategy(function(username, password, done) {
-   new Model.User({username: username}).fetch().then(function(data) {
-      var user = data;
-      if(user === null) {
-         return done(null, false, {message: 'Invalid username or password'});
-      } else {
-         user = data.toJSON();
-         if(!bcrypt.compareSync(password, user.password)) {
+passport.use(new LocalStrategy(function (username, password, done) {
+    new Model.User({username: username}).fetch().then(function (data) {
+        var user = data;
+        if (user === null) {
             return done(null, false, {message: 'Invalid username or password'});
-         } else {
-            return done(null, user);
-         }
-      }
-   });
+        } else {
+            user = data.toJSON();
+            if (!bcrypt.compareSync(password, user.password)) {
+                return done(null, false, {message: 'Invalid username or password'});
+            } else {
+                return done(null, user);
+            }
+        }
+    });
 }));
 
 
-var storage =   multer.diskStorage({
-  destination: function (req, file, callback) {
-    callback(null, './public');
-  },
-  filename: function (req, file, callback) {
-    callback(null, file.fieldname);
-  }
+var storage = multer.diskStorage({
+    destination: function (req, file, callback) {
+        callback(null, './public/userfiles');
+    },
+    filename: function (req, file, callback) {
+        callback(null, file.fieldname);
+    }
 });
-var upload = multer({ storage : storage}).single('userPhoto');
-app.post('/api/photo',function(req,res){
-    upload(req,res,function(err) {
-        if(err) {
+var upload = multer({storage: storage}).single('userPhoto');
+app.post('/api/photo', function (req, res) {
+    upload(req, res, function (err) {
+        if (err) {
             return res.end("Error uploading file.");
         }
         res.end("File is uploaded");
@@ -56,15 +56,14 @@ app.post('/api/photo',function(req,res){
 });
 
 
-
-passport.serializeUser(function(user, done) {
-  done(null, user.username);
+passport.serializeUser(function (user, done) {
+    done(null, user.username);
 });
 
-passport.deserializeUser(function(username, done) {
-   new Model.User({username: username}).fetch().then(function(user) {
-      done(null, user);
-   });
+passport.deserializeUser(function (username, done) {
+    new Model.User({username: username}).fetch().then(function (user) {
+        done(null, user);
+    });
 });
 
 app.set('port', process.env.PORT || 3000);
@@ -106,21 +105,20 @@ app.get('/signout', route.signOut);
 // 404 not found
 app.use(route.notFound404);
 
-var server = app.listen(app.get('port'), function(err) {
-   if(err) throw err;
+var server = app.listen(app.get('port'), function (err) {
+    if (err) throw err;
 
-   var message = 'Server is running @ http://localhost:' + server.address().port;
-   console.log(message);
+    var message = 'Server is running @ http://localhost:' + server.address().port;
+    console.log(message);
 });
 
 var io = require('socket.io').listen(server);
-io.sockets.on('connection', function (socket)
-{
-   socket.on("text",function(wid){
-    
-      socket.broadcast.emit("text",wid);
-   })
-      console.log('Un client est connecté !');
-   });
+io.sockets.on('connection', function (socket) {
+    socket.on("text", function (wid) {
+
+        socket.broadcast.emit("text", wid);
+    });
+    console.log('Un client est connecté !');
+});
 server.listen(3000);
 // Quand un client se connecte, on le note dans la console
