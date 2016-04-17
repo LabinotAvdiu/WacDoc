@@ -1,6 +1,8 @@
 // vendor libraries
 var socket = require('socket.io');
 var express = require('express');
+var multer = require('multer');
+
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -33,6 +35,27 @@ passport.use(new LocalStrategy(function(username, password, done) {
       }
    });
 }));
+
+
+var storage =   multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './public');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname);
+  }
+});
+var upload = multer({ storage : storage}).single('userPhoto');
+app.post('/api/photo',function(req,res){
+    upload(req,res,function(err) {
+        if(err) {
+            return res.end("Error uploading file.");
+        }
+        res.end("File is uploaded");
+    });
+});
+
+
 
 passport.serializeUser(function(user, done) {
   done(null, user.username);
@@ -94,7 +117,7 @@ var io = require('socket.io').listen(server);
 io.sockets.on('connection', function (socket)
 {
    socket.on("text",function(wid){
-      
+    
       socket.broadcast.emit("text",wid);
    })
       console.log('Un client est connecté !');

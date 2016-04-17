@@ -1,25 +1,18 @@
 $(document).ready(function () {
 	socket = io.connect('http://localhost:3000');
+var change = false;
+$("#content").bind('DOMSubtreeModified',function(){
+	if(change  == true){
 
-	$(document).mousemove(function(){
-		sock ()
-	})
-
-
-	$(document).keyup(function(){
-		sock ()
-	})
-
-	function sock (){
 		socket.emit("text",$("#content").html());
 	}
-
-
-
+	change = true
+})
 
 	socket.on("text",function(value){
-		// console.log(value);
 		$('#content').html(value);
+	c hange = false
+
 	})
 
 

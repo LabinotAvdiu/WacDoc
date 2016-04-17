@@ -8,5 +8,15 @@
          Welcome <strong><%= user.username %></strong>
          <a href="/signout" title="sign out">sign out</a>
       </p>
+      <p>
+      	<form id    =  "uploadForm"
+     enctype   =  "multipart/form-data"
+     action    =  "/api/photo"
+     method    =  "post"
+>
+<input type="file" name="userPhoto" />
+<input type="submit" value="Upload Image" name="submit">
+</form>
+      </p>
    </body>
 </html>
