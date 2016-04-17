@@ -1,0 +1,47 @@
+#background {
+	background-image: url('img/francisco.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+#nav {
+	height: 100px;
+	line-height: 90px;
+}
+#title {
+	width: 16%;
+	margin-left: 16%;
+}
+#logo {
+	width: 100%;
+}
+#subject {
+	position: relative;
+	left: 15%;
+	top: 15px;
+	padding: 5px;
+	background-color: #e53935;
+}
+.menu {
+	margin-right: 16%;
+}
+#inscription {
+	margin: 0;
+	height: 919px;
+}
+.align {
+	color: red;
+	width: 90%;
+	text-align: center;
+}
+#signin {
+	margin-left: 37%;
+	margin-right: 37%;
+}
+#signup {
+	margin-left: 37%;
+	margin-right: 37%;
+}
+#insc {
+	margin-top: 60%;
+}

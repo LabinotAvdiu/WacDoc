@@ -60,6 +60,11 @@ var signUp = function(req, res, next) {
    }
 };
 
+
+var doc = function(req, res, next) {
+      res.render('doc', {title: 'ccc Up'});
+};
+
 // sign up
 // POST
 var signUpPost = function(req, res, next) {
@@ -77,7 +82,7 @@ var signUpPost = function(req, res, next) {
          var password = user.password;
          var hash = bcrypt.hashSync(password);
 
-         var signUpUser = new Model.User({username: user.username, password: hash});
+         var signUpUser = new Model.User({username: user.username,email: user.email, password: hash});
 
          signUpUser.save().then(function(model) {
             // sign in the newly registered user
@@ -113,6 +118,7 @@ module.exports.index = index;
 module.exports.signIn = signIn;
 // POST
 module.exports.signInPost = signInPost;
+module.exports.doc = doc;
 
 // sign up
 // GET

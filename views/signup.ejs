@@ -1,28 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title><%= title %></title>
-   </head>
-   <body>
-      <!-- <h2>Register Form</h2> -->
-      <form method="post" action="/signup">
-         <% if(typeof(errorMessage) !== 'undefined') {%>
-         <span><%= errorMessage %></span>
-         <% } %>
-         <p>
-            <label for="username">username</label>
-            <input type="text" name="username" id="username"
-               placeholder="username" required="true"/>
-         </p>
-         <p>
-            <label for="password">password</label>
-            <input type="text" name="password" id="password"
-               placeholder="password" required="true"/>
-         </p>
-         <p>
-            <input type="submit" name="signup" id="signup" value="register"/>
-            <a href="/signin" title="sign in">sign in</a>
-         </p>
-      </form>
-   </body>
+<head>
+   <title><%= title %></title>
+   <link rel="stylesheet" href="style.css">
+   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+   <script src="licence.js"></script>
+   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+   <script src="bower_components/Materialize/bin/materialize.js"></script>
+</head>
+<body>
+   <div id="background">
+   <nav>
+      <div id="nav" class="nav-wrapper red darken-3">
+         <div id="logo">
+            <img id="subject" src="img/subject.svg" alt=""> 
+            <a href="#" id="title" class="brand-logo">Wac Docs</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down menu">
+               <li><a href="/signin">Connexion</a></li>
+               <li><a href="/signup">Inscription</a></li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+      <div id="inscription" class="row">
+         <div class="col s2 push-s5">
+            <form id="insc" method="post" action="/signup">
+               <% if(typeof(errorMessage) !== 'undefined') {%>
+               <span><%= errorMessage %></span>
+               <% } %>
+               <div class="input-field col s12">
+                  <label class="align" for="username">username</label>
+                  <input type="text" name="username" id="username" class="validate" required="true"/>
+               </div>
+                 <div class="input-field col s12">
+                  <label class="align" for="email">email</label>
+                  <input type="email" name="email" id="email" class="validate" required="true"/>
+               </div>
+               <div class="input-field col s12">
+                  <label class="align" for="password">password</label>
+                  <input type="password" name="password" id="password" class="validate" required="true"/>
+               </div>
+               <div class="col s12">
+                   <input type="submit" name="signup" id="signup" class="waves-effect waves-light btn" value="Sing Up"/>
+
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</body>
 </html>

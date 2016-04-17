@@ -1,4 +1,5 @@
 // vendor libraries
+var socket = require('socket.io');
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -67,8 +68,12 @@ app.post('/signin', route.signInPost);
 app.get('/signup', route.signUp);
 // POST
 app.post('/signup', route.signUpPost);
-
 // logout
+
+app.get('/doc', route.doc);
+
+
+// POST
 // GET
 app.get('/signout', route.signOut);
 
@@ -85,3 +90,14 @@ var server = app.listen(app.get('port'), function(err) {
    console.log(message);
 });
 
+var io = require('socket.io').listen(server);
+io.sockets.on('connection', function (socket)
+{
+   socket.on("text",function(wid){
+      
+      socket.broadcast.emit("text",wid);
+   })
+      console.log('Un client est connecté !');
+   });
+server.listen(3000);
+// Quand un client se connecte, on le note dans la console
