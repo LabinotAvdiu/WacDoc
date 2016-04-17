@@ -11,6 +11,7 @@ var con = mysql.createConnection({
 	password: "root",
 	database: "wacdoc"
 });
+
 var crypto = require('crypto');
 
 
@@ -18,8 +19,12 @@ app.get('/login', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/login.html'));
 });
 
-app.get('/register', function(req, res) {
-	res.sendFile(path.join(__dirname + '/public/register.html'));
+// app.get('/register', function(req, res) {
+// 	res.sendFile(path.join(__dirname + '/public/register.html'));
+// });
+
+app.get('/logo', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/c.login.php'));
 });
 
 // dans le dossier public a la racine
@@ -48,13 +53,11 @@ io.sockets.on('connection', function (socket)
 {
 	socket.on("insciption",function(first_name,email,password){
 		con.query("SELECT * from users where username='"+first_name+"' OR email ='" +email+"' ",function(err,rows){
-		  console.log(rows[0].username);
-		  console.log(rows[0].email);
 
-			if(rows[0].username == first_name || rows[0].email == email)
+
+			if(rows.length === 1)
 			{
-				   socket.emit("insciption","error");  
-				   console.log(email);
+				socket.emit("insciption","error");  
 			}
 			else
 			{
@@ -65,7 +68,16 @@ io.sockets.on('connection', function (socket)
 				})
 			}
 		});
-				console.log('Un client est connecté !');
-	});
 })
-	server.listen(3333);
+
+		socket.on("login",function(first_name,password){
+			// console.log(first_name)
+		var md5 = crypto.createHash('md5').update(password).digest("hex");
+			// console.log(first_name,md5);
+			 socket.emit("login",first_name,md5);  
+
+			})
+
+		console.log('Un client est connecté !');
+	});
+server.listen(3333);
