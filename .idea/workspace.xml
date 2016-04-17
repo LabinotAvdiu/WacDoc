@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bd3320f-2d09-4ef3-8a70-d461532e809d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WYSIWYG plugin/index.html" afterPath="$PROJECT_DIR$/WYSIWYG plugin/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WYSIWYG plugin/mainscript.js" afterPath="$PROJECT_DIR$/WYSIWYG plugin/mainscript.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WYSIWYG plugin/wacDocWYSIWYG.js" afterPath="$PROJECT_DIR$/WYSIWYG plugin/wacDocWYSIWYG.js" />
     </list>
     <ignored path="WacDoc.iws" />
@@ -29,8 +27,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WYSIWYG plugin/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.777778">
-              <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+            <state vertical-scroll-proportion="-15.555555">
+              <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -49,12 +47,12 @@
       <file leaf-file-name="wacDocWYSIWYG.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WYSIWYG plugin/wacDocWYSIWYG.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.7722166">
-              <caret line="156" column="23" selection-start-line="156" selection-start-column="23" selection-end-line="156" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.6138917">
+              <caret line="180" column="58" selection-start-line="180" selection-start-column="58" selection-end-line="180" selection-end-column="58" />
               <folding>
-                <marker date="1460891954283" expanded="true" signature="2940:3128" placeholder="..." />
-                <marker date="1460891954283" expanded="true" signature="2990:3097" placeholder="..." />
-                <marker date="1460891954283" expanded="true" signature="3036:3066" placeholder="..." />
+                <marker date="1460894896651" expanded="true" signature="3274:3462" placeholder="..." />
+                <marker date="1460894896651" expanded="true" signature="3324:3431" placeholder="..." />
+                <marker date="1460894896651" expanded="true" signature="3370:3400" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -252,9 +250,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1460891954283" expanded="true" signature="2940:3128" placeholder="..." />
-            <marker date="1460891954283" expanded="true" signature="2990:3097" placeholder="..." />
-            <marker date="1460891954283" expanded="true" signature="3036:3066" placeholder="..." />
+            <marker date="1460894896651" expanded="true" signature="3274:3462" placeholder="..." />
+            <marker date="1460894896651" expanded="true" signature="3324:3431" placeholder="..." />
+            <marker date="1460894896651" expanded="true" signature="3370:3400" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -279,9 +277,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1460891954283" expanded="true" signature="2940:3128" placeholder="..." />
-            <marker date="1460891954283" expanded="true" signature="2990:3097" placeholder="..." />
-            <marker date="1460891954283" expanded="true" signature="3036:3066" placeholder="..." />
+            <marker date="1460894896651" expanded="true" signature="3274:3462" placeholder="..." />
+            <marker date="1460894896651" expanded="true" signature="3324:3431" placeholder="..." />
+            <marker date="1460894896651" expanded="true" signature="3370:3400" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -356,14 +354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WYSIWYG plugin/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.777778">
-          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WYSIWYG plugin/mainscript.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -372,14 +362,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WYSIWYG plugin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.555555">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WYSIWYG plugin/wacDocWYSIWYG.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7722166">
-          <caret line="156" column="23" selection-start-line="156" selection-start-column="23" selection-end-line="156" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.6138917">
+          <caret line="180" column="58" selection-start-line="180" selection-start-column="58" selection-end-line="180" selection-end-column="58" />
           <folding>
-            <marker date="1460891954283" expanded="true" signature="2940:3128" placeholder="..." />
-            <marker date="1460891954283" expanded="true" signature="2990:3097" placeholder="..." />
-            <marker date="1460891954283" expanded="true" signature="3036:3066" placeholder="..." />
+            <marker date="1460894896651" expanded="true" signature="3274:3462" placeholder="..." />
+            <marker date="1460894896651" expanded="true" signature="3324:3431" placeholder="..." />
+            <marker date="1460894896651" expanded="true" signature="3370:3400" placeholder="..." />
           </folding>
         </state>
       </provider>

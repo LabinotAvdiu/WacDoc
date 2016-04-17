@@ -12,11 +12,21 @@
                 outline: 'none'
             })
         });
+        this.css({
+            padding: '10px'
+        });
 
         this.mousemove(function (event) {
             var target = $(event.target);
             if (target.is("a")) {
                 target[0].contentEditable = false;
+                target.hover(
+                    function() {
+                        target.css({'text-decoration': 'underline'});
+                    }, function() {
+                        target.css({'text-decoration': 'none'});
+                    }
+                );
             }
         });
 
@@ -168,7 +178,7 @@
                     image.className = 'resize';
                     self.append(image);
                     $('.resize').css({
-                        'max-width': self.width(),
+                        'max-width': self.outerWidth() - 40,
                         overflow: 'auto',
                         '-moz-resize': 'both',
                         '-webkit-resize': 'both',
