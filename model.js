@@ -4,7 +4,12 @@ var User = DB.Model.extend({
    tableName: 'users',
    idAttribute: 'id',
 });
+var Files = DB.Model.extend({
+   tableName: 'files',
+   idAttribute: 'id',
+});
 
 module.exports = {
-   User: User
+   User: User,
+   Files: Files
 };

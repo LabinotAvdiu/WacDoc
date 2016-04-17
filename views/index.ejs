@@ -1,12 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title><%= title %></title>
-   </head>
-   <body>
-      <p>
-         Welcome <strong><%= user.username %></strong>
-         <a href="/signout" title="sign out">sign out</a>
-      </p>
-   </body>
+<head>
+	<title><%= title %></title>
+	<link rel="stylesheet" href="style.css">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+	<script src="licence.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script src="bower_components/Materialize/bin/materialize.js"></script>
+</head>
+<body>
+	<nav>
+		<div id="nav" class="nav-wrapper red darken-3">
+			<div id="logo">
+				<img id="subject" src="img/subject.svg" alt=""> 
+				<a href="/" id="title" class="brand-logo">Wac Docs</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down menu">
+					<li><a href="/signout" title="sign out">Déconnexion</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="page">
+		<div class="row">
+			<div id="table" class="col s6 push-s3">
+				<div id="titre">
+					<div class="col s6">
+						<div class="th" id="name_doc">Nom du document</div>
+					</div>
+					<div class="col s3">
+						<div class="th" id="qui">De qui ?</div>
+					</div>
+					<div class="col s3">
+						<div class="th" id="creation">Création</div>
+					</div>
+				</div>
+				<div class="document">
+					<div class="col s6 back">
+						<div class="td"><a href="">Document sans titre</a></div>
+					</div>
+					<div class="col s3 back">
+						<div class="td gris">moi</div>
+					</div>
+					<div class="col s2 back">
+						<div class="td gris">17/04/2016</div>
+					</div>
+				</div>
+				<div class="document">
+					<div class="col s6 back">
+						<div class="td"><a href="">Document sans titre</a></div>
+					</div>
+					<div class="col s3 back">
+						<div class="td gris">moi</div>
+					</div>
+					<div class="col s2 back">
+						<div class="td gris">17/04/2016</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="new">
+			<div>
+				<a id="add" href="/doc"><i id="round" class="material-icons">add</i></a>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

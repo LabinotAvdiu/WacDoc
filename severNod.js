@@ -8,7 +8,7 @@ var app = express();
 var con = mysql.createConnection({
 	host: "localhost",
 	user: "root",
-	password: "wac",
+	password: "root",
 	database: "wacdoc"
 });
 

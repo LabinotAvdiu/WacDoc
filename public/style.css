@@ -2,15 +2,48 @@
 	background-image: url('img/francisco.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
-
 }
 #nav {
 	height: 100px;
 	line-height: 90px;
 }
+#titre {
+	float: left;
+	width: 100%;
+	margin-bottom: 25px;
+}
+#table {
+	margin-top: 60px;
+}
 #title {
 	width: 16%;
 	margin-left: 16%;
+}
+.th {
+	float: left;
+}
+.td {
+	float: left;
+}
+.back {
+	padding: 10px;
+	background-color: white;
+}
+#new {
+	position: absolute;
+	top: 80%;
+	right: 6%;
+}
+#add {
+	color: white;
+}
+#round {
+	padding: 25px;
+	border-radius: 100%;
+	background-color: #fb8c00;
+}
+.gris {
+	color: #666666;
 }
 #logo {
 	width: 100%;
@@ -44,4 +77,15 @@
 }
 #insc {
 	margin-top: 60%;
+}
+#page {
+	margin: 0px;
+	width: 100%;
+	height: 885px;
+	overflow: hidden;
+	display: inline-block;
+	background-color: #EEEEEE;
+}
+.wysi {
+	height: 50px;
 }
